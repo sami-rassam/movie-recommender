@@ -23,7 +23,8 @@ def recommend(movie):
         recommendations.append({
             'title': movies.iloc[i[0]].movie_display,
             'rating': round(movies.iloc[i[0]].weighted_tmdb_rating, 2),
-            'category': movies.iloc[i[0]].rating_category
+            'category': movies.iloc[i[0]].rating_category,
+            'poster_url': movies.iloc[i[0]].poster_url
         })
     
     recommendations_df = pd.DataFrame(recommendations)

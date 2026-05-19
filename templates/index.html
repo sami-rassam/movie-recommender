@@ -20,15 +20,19 @@
     {% if selected_movie %}
         <h2>Recommendations for {{ selected_movie }}</h2>
 
-        <ul>
-            {% for movie in recommendations %}
-                <li>
-                    <strong>{{ movie.title }}</strong> —
-                    Rating: {{ movie.rating }} —
-                    Category: {{ movie.category }}
-                </li>
-            {% endfor %}
-        </ul>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+    {% for movie in recommendations %}
+        <div style="width: 180px; border: 1px solid #ddd; padding: 10px; border-radius: 8px;">
+            <img src="{{ movie.poster_url }}"
+                 alt="{{ movie.title }}"
+                 style="width: 100%; border-radius: 6px;">
+
+            <h3 style="font-size: 16px;">{{ movie.title }}</h3>
+            <p>Rating: {{ movie.rating }}</p>
+            <p>Category: {{ movie.category }}</p>
+        </div>
+    {% endfor %}
+</div>
     {% endif %}
 </body>
 </html>
